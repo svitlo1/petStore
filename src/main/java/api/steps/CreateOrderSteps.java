@@ -22,7 +22,7 @@ public class CreateOrderSteps extends OrderSteps {
                 .complete(true).build();
     }
 
-    @Step("Build default Order creation request")
+    @Step("Build not valid Order creation request")
     public Order buildNotValidCreateOrderRequest() {
         return Order.builder()
                 .petId(1)

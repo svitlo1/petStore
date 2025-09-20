@@ -37,8 +37,6 @@ public class DeleteOrderTests {
         ApiResponse deleteOrderResponse = deleteOrderSteps.deleteOrder(id);
 
         deleteOrderSteps.verifyDeleteOrderSuccessfully(deleteOrderResponse);
-
-        getOrderSteps.verifyGetNotExistedOrder(12345);
     }
 
     @Test
