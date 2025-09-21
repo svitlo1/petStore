@@ -1,9 +1,10 @@
 package api.services;
 
-import api.utils.ConfigReader;
 import api.utils.RequestException;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import config.EnvironmentLoader;
+import config.EnvironmentProperties;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import retrofit2.Call;
@@ -17,10 +18,10 @@ public class ServiceBase {
     protected Retrofit retrofit;
     protected static Gson gson;
 
-    protected static final String baseUrl = ConfigReader.get("base.url");
-
-
     public ServiceBase(){
+        EnvironmentProperties env = EnvironmentLoader.loadActiveEnvironment();
+        String baseUrl = env.getBaseUrl();
+
         gson = new GsonBuilder()
                 .enableComplexMapKeySerialization()
                 .serializeNulls()
